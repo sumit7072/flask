@@ -27,3 +27,8 @@ class Hospital(db.Model):
 db.create_all()
 # if __name__=="__main__":
     # app.run(debug=True)
+
+
+
+def __repr__(self):
+    return str(self)
