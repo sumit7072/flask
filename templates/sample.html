@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>welcome</title>
+</head>
+
+{{msg}}
+<body>
+ <form action="http://localhost:5000/hospital/save/" method="post">
+     HospitalId:<input type="text" name="hid"   value="{{obj.hid}}">
+     HospitalName:<input type="text" name="hname"value="{{obj.hname}}"><br>
+     HospitalAddress:<input type="text" name="hadr"value="{{obj.hadr}}"><br>
+     HospitalFloors:<input type="text" name="hfloors"value="{{obj.hfloors}}"><br>
+     HospitalAmbulance:<input type="text" name="hambulance"value="{{obj.hambulance}}"><br>
+     <input type="submit">
+
+ </form>
+<br>
+<br>
+      <table border="1">
+          <thead>
+          <td>ID</td>
+          <td>NAME</td>
+          <td>ADDRESS</td>
+          <td>FLOORS</td>
+          <td>AMBULANCE</td></thead>
+
+          {% for h in hospitals %}
+          <tbody>
+           <td>{{h.hid}}</td>
+           <td>{{h.hname}}</td>
+           <td>{{h.hadr}}</td>
+           <td>{{h.hfloors}}</td>
+           <td>{{h.hambulance}}</td>
+           <td>
+               <a href="/hospital/edit/{{h.hid}}">EDIT</a>|
+               <a href="/hospital/delete/{{h.delete}}">DELETE</a>
+           </td>
+           </tbody>
+          {% endfor %}
+
+      </table>
+</body>
+</html>
